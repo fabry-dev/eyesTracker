@@ -9,11 +9,11 @@
 #define OFFSET_X parameters[2]
 #define OFFSET_Y parameters[3]
 
-targetSeeker::targetSeeker(QWidget *parent, QString PATH,std::vector<int>parameters):QObject(parent),PATH(PATH)
+targetSeeker::targetSeeker(QWidget *parent, QString PATH,std::vector<int>parameters,bool DEBUG):QObject(parent),PATH(PATH),DEBUG(DEBUG)
 {
 
     videoThread = new QThread;
-    worker = new videoWorker(NULL,PATH,parameters);
+    worker = new videoWorker(NULL,PATH,parameters,DEBUG);
     worker->moveToThread(videoThread);
     connect(videoThread,SIGNAL(started()),worker,SLOT(init()),Qt::QueuedConnection);
     videoThread->start();
@@ -27,7 +27,7 @@ targetSeeker::targetSeeker(QWidget *parent, QString PATH,std::vector<int>paramet
 
 
 
-videoWorker::videoWorker(QWidget *parent, QString PATH, std::vector<int> parameters):QObject(parent),PATH(PATH),parameters(parameters)
+videoWorker::videoWorker(QWidget *parent, QString PATH, std::vector<int> parameters, bool DEBUG):QObject(parent),PATH(PATH),parameters(parameters),DEBUG(DEBUG)
 {
 
 
@@ -249,13 +249,19 @@ void videoWorker::processNextFrame()
 
     if(target!=Point(0,0))
     {
+
         circle(display,target,20,cv::Scalar(0,255,0));
-        emit nuPos((double)100*target.x/depthImage.cols,(double)100*target.y/depthImage.rows);
+        if(cv::norm(target-lastTarget)>40)
+        {
+            emit nuPos((double)100*target.x/depthImage.cols,(double)100*target.y/depthImage.rows);
+            lastTarget = target;
+        }
     }
 
 
-  //  cvtColor(display,display, COLOR_BGR2RGB);
-    imshow("test",display);
+    //  cvtColor(display,display, COLOR_BGR2RGB);
+    if(DEBUG)
+        imshow("test",display);
 
 
 

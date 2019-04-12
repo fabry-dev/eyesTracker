@@ -37,8 +37,8 @@ FORMS += \
         mainwindow.ui
 
 INCLUDEPATH += /usr/local/include/opencv4
-INCLUDEPATH += /home/$$(USER)/astra3/include
-INCLUDEPATH += /home/$$(USER)/astra3/samples/common
+#INCLUDEPATH += /home/$$(USER)/astra3/include
+#INCLUDEPATH += /home/$$(USER)/astra3/samples/common
 INCLUDEPATH += /home/$$(USER)/OpenNi2_3/Include
 
 LIBS +=  -lopencv_core -lopencv_imgproc -lopencv_imgcodecs -lopencv_highgui -lopencv_video -lopencv_videoio
@@ -48,7 +48,7 @@ LIBS +=  -lopencv_core -lopencv_imgproc -lopencv_imgcodecs -lopencv_highgui -lop
 
 #LIBS += -L"/home/$$(USER)/astra/bin/lib" -lastra -lastra_core -lastra_core_api
 
-LIBS += -L"/home/$$(USER)/astra3/lib" -lastra -lastra_core -lastra_core_api
+#LIBS += -L"/home/$$(USER)/astra3/lib" -lastra -lastra_core -lastra_core_api
 
 #LIBS += -L"/home/$$(USER)/OpenNi2/Redist" -lOpenNI2
 

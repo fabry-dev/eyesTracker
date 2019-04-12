@@ -102,7 +102,7 @@ int main(int argc, char *argv[])
 
 
 
-  targetSeeker *ts = new targetSeeker(NULL,PATH,parameters);
+  targetSeeker *ts = new targetSeeker(NULL,PATH,parameters,DEBUG);
 
     QPixmap le;
     le.load(PATH+"leftEye.png");

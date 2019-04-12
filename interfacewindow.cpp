@@ -4,7 +4,7 @@ interfaceWindow::interfaceWindow(QWidget *parent,QString(PATH),std::vector<int>p
 {
 
 
-    ts = new targetSeeker(this,PATH,parameters);
+
 
 
 
