@@ -82,13 +82,13 @@ int main(int argc, char *argv[])
 
     qDebug()<<"screen count "<<a.screens().size();
 
-    int desiredScreen = 1;
+    int desiredScreen = 0;
     if(desiredScreen>a.screens().size()-1)
         desiredScreen = a.screens().size()-1;
     QScreen* screen1 = a.screens().at(desiredScreen);
 
 
-    desiredScreen = 2;
+    desiredScreen = 1;
     if(desiredScreen>a.screens().size()-1)
         desiredScreen = a.screens().size()-1;
     QScreen* screen2 = a.screens().at(desiredScreen);
