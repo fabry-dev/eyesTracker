@@ -1,7 +1,7 @@
 #include "eye.h"
 
 #define eyeSize 600
-#define border 100
+#define border 20
 #define maxStep 12
 
 template <typename T> int sgn(T val) {
