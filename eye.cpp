@@ -12,7 +12,8 @@ template <typename T> int sgn(T val) {
 eye::eye(QWidget *parent, QString PATH, QPixmap eyePix):QLabel(parent),PATH(PATH),eyePix(eyePix)
 {
     resize(1080,1920);
-    setStyleSheet("QLabel { background-color : white; }");
+
+    setStyleSheet("QLabel { background-color : black; }");
     eyePix = eyePix.scaled(eyeSize,eyeSize,Qt::KeepAspectRatio,Qt::SmoothTransformation);
 
     eyeLbl.setParent(this);
@@ -32,6 +33,8 @@ eye::eye(QWidget *parent, QString PATH, QPixmap eyePix):QLabel(parent),PATH(PATH
     updTimer->setInterval(1000/24);
     connect(updTimer,SIGNAL(timeout()),this,SLOT(updEye()));
     updTimer->start();
+
+
 
 }
 

@@ -19,6 +19,8 @@ targetSeeker::targetSeeker(QWidget *parent, QString PATH,std::vector<int>paramet
     videoThread->start();
 
     connect(worker,SIGNAL(nuPos(double,double)),this,SIGNAL(nuPos(double,double)));
+
+
 }
 
 
