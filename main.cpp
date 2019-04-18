@@ -108,14 +108,14 @@ int main(int argc, char *argv[])
     le.load(PATH+"leftEye.png");
 
     eye *leftEye = new eye(NULL,PATH,le);
-    leftEye->setGeometry(screen1->geometry().x(),screen1->geometry().y(),1920,1080);
+    leftEye->setGeometry(screen1->geometry().x(),screen1->geometry().y(),1080,1920);
     leftEye->showFullScreen();
     leftEye->show();
 
     QPixmap re;
     re.load(PATH+"rightEye.png");
     eye *rightEye = new eye(NULL,PATH,re);
-    rightEye->setGeometry(screen2->geometry().x(),screen2->geometry().y(),1920,1080);
+    rightEye->setGeometry(screen2->geometry().x(),screen2->geometry().y(),1080,1920);
     rightEye->showFullScreen();
     rightEye->show();
 

@@ -11,7 +11,7 @@ template <typename T> int sgn(T val) {
 
 eye::eye(QWidget *parent, QString PATH, QPixmap eyePix):QLabel(parent),PATH(PATH),eyePix(eyePix)
 {
-    resize(1920,1080);
+    resize(1080,1920);
     setStyleSheet("QLabel { background-color : white; }");
     eyePix = eyePix.scaled(eyeSize,eyeSize,Qt::KeepAspectRatio,Qt::SmoothTransformation);
 
